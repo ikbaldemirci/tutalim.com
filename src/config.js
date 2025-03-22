@@ -12,18 +12,12 @@ connect
   });
 
 const LoginSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
+  name: { type: String, required: true },
+  surname: { type: String, required: true },
+  mail: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, required: true, enum: ["emlakçı", "ev sahibi"] },
 });
-
-// POST YAZICAZ
 
 const collection = new mongoose.model("users", LoginSchema);
 
